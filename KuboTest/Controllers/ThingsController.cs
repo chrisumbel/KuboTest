@@ -22,7 +22,7 @@ namespace KuboTest.Controllers
             ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(redisHost);
             IDatabase db = redis.GetDatabase(); 
             db.StringIncrement("THING");
-            return $"{db.StringGet("THING").ToString()}";
+            return $"UMBEL: {db.StringGet("THING").ToString()}";
         }
     }
 }
