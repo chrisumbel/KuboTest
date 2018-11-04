@@ -19,6 +19,12 @@ namespace KuboTest
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    config.SetBasePath(Directory.GetCurrentDirectory());
+                    config.AddJsonFile("appsettings.json");
+                    config.AddEnvironmentVariables();
+                })
                 .UseStartup<Startup>();
     }
 }

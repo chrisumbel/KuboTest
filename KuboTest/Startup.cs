@@ -40,7 +40,6 @@ namespace KuboTest
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }
