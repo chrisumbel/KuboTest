@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: kubotest
-        image: chrisumbel/kubotest:latest
+        image: chrisumbel/kubotest:{{ .BuildId }}
         ports:
         - containerPort: {{ .Values.service.port }}
         env:
