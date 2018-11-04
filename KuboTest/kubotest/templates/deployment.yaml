@@ -16,5 +16,5 @@ spec:
       - name: kubotest
         image: chrisumbel/kubotest
         ports:
-        - containerPort: 80
-          hostPort: 80
+        - containerPort: {{ .Values.service.port }}
+          # hostPort: 80
