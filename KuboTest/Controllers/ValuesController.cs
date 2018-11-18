@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace KuboTest.Controllers
 {
@@ -10,12 +11,21 @@ namespace KuboTest.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private IConfiguration config;
+
+        public ValuesController(IConfiguration config) 
+        {
+            this.config = config;
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2", "value3" };
-        }        
+            string message = this.config["Message"];
+
+            return new string[] { message, "value2", "value3", "values4" };
+        }
 
         // GET api/values/5
         [HttpGet("{id}")]

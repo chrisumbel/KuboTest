@@ -17,7 +17,7 @@ namespace KuboTest.Controllers
         // GET api/values/5
         [HttpGet()]
         public ActionResult<string> Get()
-        {            
+        {
             string redisHost = config["REDIS-SERVICE"];
             ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(redisHost);
             IDatabase db = redis.GetDatabase(); 

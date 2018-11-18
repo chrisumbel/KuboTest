@@ -23,6 +23,7 @@ namespace KuboTest
                 {
                     config.SetBasePath(Directory.GetCurrentDirectory());
                     config.AddJsonFile("appsettings.json");
+                    config.AddJsonFile("/config/appsettings.json", optional:true);                    
                     config.AddEnvironmentVariables();
                 })
                 .UseStartup<Startup>();
